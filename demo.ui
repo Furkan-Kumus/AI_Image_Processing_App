@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1674</width>
+    <height>751</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(181, 181, 181);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="imgLabel">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>601</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imgLabel2">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>10</y>
+      <width>611</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_5">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>10</y>
+      <width>20</width>
+      <height>671</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>560</y>
+      <width>291</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Orijinal Fotoğraf</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>560</y>
+      <width>431</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Dönüştürülmüş Fotoğraf</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_6">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>10</y>
+      <width>20</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>1550</x>
+      <y>40</y>
+      <width>105</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_otsu">
+       <property name="text">
+        <string>Otsu Threshold</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_gray">
+       <property name="text">
+        <string>Gray Scale</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_constant">
+       <property name="text">
+        <string>Border Constant</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_replicate">
+       <property name="text">
+        <string>Border Replicate</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_gamma">
+       <property name="text">
+        <string>Gamma</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_histoCiz">
+       <property name="text">
+        <string>Histogram Çiz</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_histoEsitle">
+       <property name="text">
+        <string>Histogram Eşitle</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_graident">
+       <property name="text">
+        <string>Graident</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_deriche">
+       <property name="text">
+        <string>Deriche</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_harris">
+       <property name="text">
+        <string>Harris Kose</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>1400</x>
+      <y>40</y>
+      <width>111</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="btn_blur">
+       <property name="text">
+        <string>Blur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_boxF">
+       <property name="text">
+        <string>Box Filter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_medianF">
+       <property name="text">
+        <string>Median Filter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_bilateralF">
+       <property name="text">
+        <string>Bilateral Filter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_gaussF">
+       <property name="text">
+        <string>Gaussian Filter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_2dF">
+       <property name="text">
+        <string>2D Filter</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1400</x>
+      <y>0</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(181, 0, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string> Smoothing Filters</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>0</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(181, 0, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string> Other Filters</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>1410</x>
+      <y>380</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(181, 0, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string> Haar Cascades</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>1400</x>
+      <y>420</y>
+      <width>116</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QPushButton" name="btn_faceCascade">
+       <property name="text">
+        <string>Face</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_contourDetection">
+       <property name="text">
+        <string>Contour Detection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_medianF_2">
+       <property name="text">
+        <string>empty</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_bilateralF_2">
+       <property name="text">
+        <string>empty</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="btn_clear">
+    <property name="geometry">
+     <rect>
+      <x>1550</x>
+      <y>590</y>
+      <width>101</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>550</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(181, 0, 0);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string> Clear Image</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_7">
+    <property name="geometry">
+     <rect>
+      <x>1520</x>
+      <y>0</y>
+      <width>20</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1674</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset>
+     <normaloff>open.png</normaloff>open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset>
+     <normaloff>save.png</normaloff>save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset>
+     <normaloff>print.png</normaloff>print.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset>
+     <normaloff>Quit.png</normaloff>Quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actioAnhXam">
+   <property name="text">
+    <string>Graycsale</string>
+   </property>
+  </action>
+  <action name="actionCanny">
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </action>
+  <action name="actionNegative">
+   <property name="text">
+    <string>Negative</string>
+   </property>
+  </action>
+  <action name="actionHistogram">
+   <property name="text">
+    <string>Histogram Equal</string>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="text">
+    <string>Log </string>
+   </property>
+  </action>
+  <action name="actionGaussan">
+   <property name="text">
+    <string>Gaussan</string>
+   </property>
+  </action>
+  <action name="actionHigh_Boost">
+   <property name="text">
+    <string>High Boost</string>
+   </property>
+  </action>
+  <action name="actionLaplacian">
+   <property name="text">
+    <string>Laplacian</string>
+   </property>
+  </action>
+  <action name="actionFilter_Average">
+   <property name="text">
+    <string>Median</string>
+   </property>
+  </action>
+  <action name="actionUnsharp">
+   <property name="text">
+    <string>Unsharp</string>
+   </property>
+  </action>
+  <action name="actionCh_ng_5">
+   <property name="text">
+    <string>Chương 5</string>
+   </property>
+  </action>
+  <action name="actionTanSo">
+   <property name="text">
+    <string>Ảnh Miền Tần Số</string>
+   </property>
+  </action>
+  <action name="actionIdeal_LPF">
+   <property name="text">
+    <string>Ideal LPF</string>
+   </property>
+  </action>
+  <action name="actionButter_LPF">
+   <property name="text">
+    <string>Butterworth LPF</string>
+   </property>
+  </action>
+  <action name="actionGaussian_LPF">
+   <property name="text">
+    <string>Gaussian LPF</string>
+   </property>
+  </action>
+  <action name="actionIdeal_HPF">
+   <property name="text">
+    <string>Ideal HPF</string>
+   </property>
+  </action>
+  <action name="actionButterworth_HPF">
+   <property name="text">
+    <string>Butterworth HPF</string>
+   </property>
+  </action>
+  <action name="actionGaussian_HPF">
+   <property name="text">
+    <string>Gaussian HPF</string>
+   </property>
+  </action>
+  <action name="actiondilate">
+   <property name="text">
+    <string>dilate</string>
+   </property>
+  </action>
+  <action name="actionErode">
+   <property name="text">
+    <string>Erode</string>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionHit_miss">
+   <property name="text">
+    <string>Hit-miss</string>
+   </property>
+  </action>
+  <action name="actionDilate">
+   <property name="text">
+    <string>Dilate</string>
+   </property>
+  </action>
+  <action name="actionMorboundary">
+   <property name="text">
+    <string>Morboundary</string>
+   </property>
+  </action>
+  <action name="actionGradient">
+   <property name="text">
+    <string>Gradient</string>
+   </property>
+  </action>
+  <action name="actionConvex">
+   <property name="text">
+    <string>Convex</string>
+   </property>
+  </action>
+  <action name="actionx_direcction_Sobel">
+   <property name="text">
+    <string>Sobel X</string>
+   </property>
+  </action>
+  <action name="actiony_direction_Sobel">
+   <property name="text">
+    <string>Sobel Y</string>
+   </property>
+  </action>
+  <action name="actionLaplacian_2">
+   <property name="text">
+    <string>Sobel Laplacian</string>
+   </property>
+  </action>
+  <action name="actionLaplacian_of_Gaussian">
+   <property name="text">
+    <string>Laplacian of Gaussian</string>
+   </property>
+  </action>
+  <action name="actionHough">
+   <property name="text">
+    <string>Hough</string>
+   </property>
+  </action>
+  <action name="actionSmall">
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+  </action>
+  <action name="actionRotation">
+   <property name="text">
+    <string>Rotation</string>
+   </property>
+  </action>
+  <action name="actionAffine">
+   <property name="text">
+    <string>Shearing</string>
+   </property>
+  </action>
+  <action name="actionGamma">
+   <property name="text">
+    <string>Gamma</string>
+   </property>
+  </action>
+  <action name="actionBig">
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+  </action>
+  <action name="actionQt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionAuthor">
+   <property name="text">
+    <string>Author</string>
+   </property>
+  </action>
+  <action name="actionTranslation">
+   <property name="text">
+    <string>Translation</string>
+   </property>
+  </action>
+  <action name="actionGaussian">
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="actionRayleigh">
+   <property name="text">
+    <string>Rayleigh</string>
+   </property>
+  </action>
+  <action name="actionImpluse">
+   <property name="text">
+    <string>Impluse</string>
+   </property>
+  </action>
+  <action name="actionUniform">
+   <property name="text">
+    <string>Uniform</string>
+   </property>
+  </action>
+  <action name="actionErlang">
+   <property name="text">
+    <string>Erlang</string>
+   </property>
+  </action>
+  <action name="actionHistogram_PDF">
+   <property name="text">
+    <string>Histogram PDF</string>
+   </property>
+  </action>
+  <action name="actionDetecion">
+   <property name="text">
+    <string>HoughLines</string>
+   </property>
+  </action>
+  <action name="actionHoughLines">
+   <property name="text">
+    <string>HoughLines</string>
+   </property>
+  </action>
+  <action name="actionSHT">
+   <property name="text">
+    <string> Standard Hough Transform</string>
+   </property>
+  </action>
+  <action name="actionMedian_Filtering">
+   <property name="text">
+    <string>Median Filtering</string>
+   </property>
+  </action>
+  <action name="actionAdaptive_Wiener_Filtering">
+   <property name="text">
+    <string>Adaptive Wiener Filtering</string>
+   </property>
+  </action>
+  <action name="actionAdaptive_Median_Filtering">
+   <property name="text">
+    <string>Adaptive Median Filtering</string>
+   </property>
+  </action>
+  <action name="actionInverse_Filter">
+   <property name="text">
+    <string>Inverse Filter </string>
+   </property>
+  </action>
+  <action name="actionBlur">
+   <property name="text">
+    <string>Blur</string>
+   </property>
+  </action>
+  <action name="actionBox_Filter">
+   <property name="text">
+    <string>Box Filter</string>
+   </property>
+  </action>
+  <action name="actionMedian_Filter">
+   <property name="text">
+    <string>Median Filter</string>
+   </property>
+  </action>
+  <action name="actionBilateral_Filter">
+   <property name="text">
+    <string>Bilateral Filter</string>
+   </property>
+  </action>
+  <action name="actionGaussian_Filter">
+   <property name="text">
+    <string>Gaussian Filter</string>
+   </property>
+  </action>
+  <action name="actionDirectional_Filtering">
+   <property name="text">
+    <string>Directional Filtering</string>
+   </property>
+  </action>
+  <action name="actionMedian_threshold">
+   <property name="text">
+    <string>Median threshold</string>
+   </property>
+  </action>
+  <action name="actionMedian_threshold_2">
+   <property name="text">
+    <string>Median threshold</string>
+   </property>
+  </action>
+  <action name="actionDirectional_Filtering_2">
+   <property name="text">
+    <string>Directional Filtering</string>
+   </property>
+  </action>
+  <action name="action_Butterworth">
+   <property name="text">
+    <string>Butterworth Filter</string>
+   </property>
+  </action>
+  <action name="action_Notch_filter">
+   <property name="text">
+    <string>Notch Filter</string>
+   </property>
+  </action>
+  <action name="actionCartoon">
+   <property name="text">
+    <string>Cartoon</string>
+   </property>
+  </action>
+  <action name="actionDirectional_Filtering_3">
+   <property name="text">
+    <string>Directional Filtering 2</string>
+   </property>
+  </action>
+  <action name="actionDirectional_Filtering_4">
+   <property name="text">
+    <string>Directional Filtering 3</string>
+   </property>
+  </action>
+  <action name="actionFiltre_2D">
+   <property name="text">
+    <string>Filtre 2D</string>
+   </property>
+  </action>
+  <action name="actionOtsu_Thresold">
+   <property name="text">
+    <string>Otsu Thresold</string>
+   </property>
+  </action>
+  <action name="actionGray_Scale">
+   <property name="text">
+    <string>Gray Scale</string>
+   </property>
+  </action>
+  <action name="actionBorder_Constant">
+   <property name="text">
+    <string>Border Constant</string>
+   </property>
+  </action>
+  <action name="actionBorder_Replicate">
+   <property name="text">
+    <string>Border Replicate</string>
+   </property>
+  </action>
+  <action name="actionGamma_2">
+   <property name="text">
+    <string>Gamma</string>
+   </property>
+  </action>
+  <action name="actionHistogram_Ciz">
+   <property name="text">
+    <string>Histogram Ciz</string>
+   </property>
+  </action>
+  <action name="actionHistogram_Esitle">
+   <property name="text">
+    <string>Histogram Esitle</string>
+   </property>
+  </action>
+  <action name="actionGraidentL2">
+   <property name="text">
+    <string>GraidentL2</string>
+   </property>
+  </action>
+  <action name="actionDeriche_Fitlre">
+   <property name="text">
+    <string>Deriche Fitlre</string>
+   </property>
+  </action>
+  <action name="actionHarris_Kose">
+   <property name="text">
+    <string>Harris Kose</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
