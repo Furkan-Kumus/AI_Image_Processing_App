@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
 from PyQt5.QtPrintSupport import QPrintDialog, QPrinter
 from PyQt5.uic import loadUi
 
-from PyQt5.QtWidgets import QLabel
+from PyQt5.QtWidgets import *
 
 import sys
 import cv2
@@ -31,7 +31,7 @@ class LoadQt(QMainWindow):
         self.actionQt.triggered.connect(self.AboutMessage)
         self.actionAuthor.triggered.connect(self.AboutMessage2)
 
-  
+
         self.actionTranslation.triggered.connect(self.translation)
 
         self.actionOtsu_Thresold.triggered.connect(self.otsu_threshold)
@@ -56,6 +56,10 @@ class LoadQt(QMainWindow):
         self.btn_graident.clicked.connect(self.l2_graident)
         self.btn_deriche.clicked.connect(self.deriche_filtre)
         self.btn_harris.clicked.connect(self.harris_kose)
+        self.btn_faceCascade.clicked.connect(self.Face_Cascade)
+        self.btn_contourDetection.clicked.connect(self.Contour_Detection)
+        self.btn_morpho.clicked.connect(self.Morfolojik)
+
 
         # Smoothing
         self.actionBlur.triggered.connect(self.blurred_filter)
@@ -72,6 +76,14 @@ class LoadQt(QMainWindow):
         self.btn_gaussF.clicked.connect(self.gaussian_filter)
         self.btn_2dF.clicked.connect(self.filter_2D)
 
+        # Slider
+        self.gammaSlider.valueChanged.connect(self.gamma)
+        self.gaussSlider.valueChanged.connect(self.gaussian_filter)
+        self.constanstSlider.valueChanged.connect(self.border_constant)
+        self.graidentMinSlider.valueChanged.connect(self.l2_graident)
+        self.graidentMaxSlider.valueChanged.connect(self.l2_graident)
+        self.contourSlider.valueChanged.connect(self.Contour_Detection)
+
         # Filter
         #self.actionMedian_threshold_2.triggered.connect(self.median_threshold)
         self.actionDirectional_Filtering_2.triggered.connect(self.directional_filtering)
@@ -79,11 +91,6 @@ class LoadQt(QMainWindow):
         self.actionDirectional_Filtering_4.triggered.connect(self.directional_filtering3)
         self.action_Butterworth.triggered.connect(self.butter_filter)
         self.action_Notch_filter.triggered.connect(self.notch_filter)
-
-        #-----------------------------------------------------------------------------------
-        self.btn_faceCascade.clicked.connect(self.Face_Cascade)
-        self.btn_contourDetection.clicked.connect(self.Contour_Detection)
-        self.btn_2dF.clicked.connect(self.filter_2D)
 
         #clear
         self.btn_clear.clicked.connect(lambda: self.clearImage(window=2))
@@ -422,44 +429,77 @@ class LoadQt(QMainWindow):
     def Contour_Detection(self):
         img = self.image
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        #
+
+        #Kenarları tespit etmek için canny kenar dedektörünü kullan
         edges = cv2.Canny(gray, 50, 150)
-        #
+
+        #Konturları bul
         contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        #
+
+        #Resmi üzerinde konturları çiz
         resim= cv2.drawContours(img, contours, -1, (0, 255, 0), 2)
         self.image = resim
         self.displayImage(2)
 
     #tamamla
-    def Orj(self):
-        img = self.image
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        imgBlr = cv2.medianBlur(img, 31)
-        #
-        imgGray = cv2.cvtColor(imgBlr, cv2.COLOR_BGR2GRAY)
-        #
-        ret, imgTH = cv2.threshold(imgGray, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+    def Morfolojik(self):
+        imgOrj = self.image
+        imgBlur = cv2.medianBlur(imgOrj, 31)
+        # Madeni para içindeki detayların sonucu etkilememesi için blurring yaptık
+        imgGray = cv2.cvtColor(imgBlur, cv2.COLOR_BGR2GRAY)
+        # Griye çevrilen resim THREH_BINARY_INV  ile arkaplan siyah,önplan beyaz yapılır
+        ret, imgTH = cv2.threshold(imgGray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
         kernel = np.ones((5, 5), np.uint8)
-        #
-        #
+        # imhTH çıktısında ön plan nesneleri üzerinde kalan gürültüden kurtulmak için
+        # morfolojik  operatörlerden openning islemi uygulanır
         imgOPN = cv2.morphologyEx(imgTH, cv2.MORPH_OPEN, kernel, iterations=7)
 
-        #
-        #
-        #
+        # Arka plan alanı
+        # dilate() fonksiyonu ie nesneler genişletilir ve kesin emin olduğumuz arkaplan
+        # kısımları elde edilir
         sureBG = cv2.dilate(imgOPN, kernel, iterations=3)
-
-        #....
+        # ÖnPlan Alanı
+        # distanceTransform() ile her pikselin en yakın sıfır değerine sahip piksele
+        # olan mesafeleri hesaplanır.Nesnelerin merkez pikselleri yani sıfır piksellerine en
+        # uzak nokta beyaz kalırken,siyah pikselere yaklaştıkça piksel değerleri düşer
+        # böylece madeni para ,yani emin olduğumuz,ön plan pikselleri ortaya çıkması.....
         dist_transform = cv2.distanceTransform(imgOPN, cv2.DIST_L2, 5)
 
-        #....
-        ret, sureFG = cv2.threshold(dist_transform, 0.7*dist_transform.max(), 255, 0)
+        # Eşikleme yap
+        # Eşik değeri olarak hesaplanan maksimum mesafenin %70'den büyük olanlarının
+        # piksel değeri 255 yapılarak sureFG elde edilmiştir
+        ret, sureFG = cv2.threshold(dist_transform, 0.7 * dist_transform.max(), 255, 0)
 
+        # Bilinmeyen bölgeleri bul
+        # Emin olduğumuz arkaplan ve ön plan arasında kalanın alanıdır.
         sureFG = np.uint8(sureFG)
+        unknow = cv2.subtract(sureBG, sureFG)
+        # Etiketleme islemi
+        ret, markers = cv2.connectedComponents(sureFG, labels=5)
+        # Bilinmeyen pikselleri etiketleme
+        markers = markers + 1
+        markers[unknow == 255] = 0
+        # Watershed algoritması uygula
+        markers = cv2.watershed(imgOrj, markers)
+        contours, hierarchy = cv2.findContours(markers, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
 
+        imgCopy = imgOrj.copy()
+        for i in range(len(contours)):
+            if hierarchy[0][i][3] == -1:
+                cv2.drawContours(imgCopy, contours, i, (255, 0, 0), 5)
+
+        f, eksen = plt.subplots(3, 3, figsize=(30, 30))
+        eksen[0, 0].imshow(imgOrj)
+        eksen[0, 1].imshow(imgBlur)
+        eksen[0, 2].imshow(imgGray)
+        eksen[1, 0].imshow(imgTH)
+        eksen[1, 1].imshow(imgOPN)
+        eksen[1, 2].imshow(sureBG)
+        eksen[2, 0].imshow(dist_transform)
+        eksen[2, 1].imshow(sureFG)
+        eksen[2, 2].imshow(imgCopy)
+        plt.show()
 
 
 
