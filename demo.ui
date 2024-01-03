@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1733</width>
-    <height>1221</height>
+    <width>2113</width>
+    <height>1277</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
    <widget class="QLabel" name="imgLabel">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>430</x>
       <y>10</y>
       <width>601</width>
       <height>521</height>
@@ -39,7 +39,7 @@
    <widget class="QLabel" name="imgLabel2">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>1110</x>
       <y>10</y>
       <width>611</width>
       <height>521</height>
@@ -58,7 +58,7 @@
    <widget class="Line" name="line_5">
     <property name="geometry">
      <rect>
-      <x>860</x>
+      <x>1060</x>
       <y>10</y>
       <width>20</width>
       <height>601</height>
@@ -71,7 +71,7 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>590</x>
       <y>560</y>
       <width>291</width>
       <height>61</height>
@@ -89,7 +89,7 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>990</x>
+      <x>1190</x>
       <y>560</y>
       <width>431</width>
       <height>61</height>
@@ -108,9 +108,9 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>690</y>
-      <width>169</width>
-      <height>471</height>
+      <y>40</y>
+      <width>241</width>
+      <height>731</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -133,10 +133,13 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>TextLabel</string>
+     <item>
+      <widget class="QTextEdit" name="textEdit_2"/>
+     </item>
+     <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -147,10 +150,13 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>TextLabel</string>
+     <item>
+      <widget class="QTextEdit" name="textEdit_3"/>
+     </item>
+     <item>
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -161,10 +167,13 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>TextLabel</string>
+     <item>
+      <widget class="QTextEdit" name="textEdit_4"/>
+     </item>
+     <item>
+      <widget class="Line" name="line_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -175,10 +184,13 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>TextLabel</string>
+     <item>
+      <widget class="QTextEdit" name="textEdit_5"/>
+     </item>
+     <item>
+      <widget class="Line" name="line_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -189,10 +201,28 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-      <widget class="QLabel" name="label_11">
-       <property name="text">
-        <string>TextLabel</string>
+     <item>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Gauss filtresi, bir görüntüdeki gürültüyü azaltmak veya yumuşatmak amacıyla kullanılan bir filtreleme tekniğidir. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="gaussSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -203,39 +233,36 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-      <widget class="QLabel" name="label_12">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
+     <item>
+      <widget class="QTextEdit" name="textEdit_6"/>
      </item>
     </layout>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>660</y>
-      <width>81</width>
+      <x>1020</x>
+      <y>650</y>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(181, 0, 0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string> Other Filters</string>
+     <string>  Other Filters </string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>1490</x>
-      <y>720</y>
-      <width>116</width>
-      <height>221</height>
+      <x>1830</x>
+      <y>20</y>
+      <width>158</width>
+      <height>371</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -243,10 +270,11 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_3">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(181, 0, 0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
-        <string> Haar Cascades</string>
+        <string>  Haar Cascades  </string>
        </property>
       </widget>
      </item>
@@ -258,9 +286,36 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
+      <widget class="QTextEdit" name="textEdit_7"/>
+     </item>
+     <item>
+      <widget class="Line" name="line_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btn_contourDetection">
        <property name="text">
         <string>Contour Detection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="textEdit_8"/>
+     </item>
+     <item>
+      <widget class="QSlider" name="contourSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_9">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -272,19 +327,15 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_bilateralF_2">
-       <property name="text">
-        <string>empty</string>
-       </property>
-      </widget>
+      <widget class="QTextEdit" name="textEdit_9"/>
      </item>
     </layout>
    </widget>
    <widget class="QPushButton" name="btn_clear">
     <property name="geometry">
      <rect>
-      <x>1500</x>
-      <y>1010</y>
+      <x>1860</x>
+      <y>540</y>
       <width>101</width>
       <height>28</height>
      </rect>
@@ -296,8 +347,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>1510</x>
-      <y>970</y>
+      <x>1870</x>
+      <y>500</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -310,71 +361,17 @@ color: rgb(255, 255, 255);</string>
      <string> Clear Image</string>
     </property>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>830</y>
-      <width>401</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QSlider" name="gaussSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSlider" name="graidentMaxSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSlider" name="gammaSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSlider" name="graidentMinSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSlider" name="constanstSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSlider" name="contourSlider">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>710</y>
-      <width>1024</width>
-      <height>80</height>
+      <x>380</x>
+      <y>700</y>
+      <width>1401</width>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_otsu">
        <property name="text">
         <string>Otsu Threshold</string>
@@ -382,6 +379,13 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
+      <widget class="Line" name="line_10">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_gray">
        <property name="text">
         <string>Gray Scale</string>
@@ -389,13 +393,13 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_constant">
-       <property name="text">
-        <string>Border Constant</string>
+      <widget class="Line" name="line_11">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
-     <item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_replicate">
        <property name="text">
         <string>Border Replicate</string>
@@ -403,13 +407,13 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_gamma">
-       <property name="text">
-        <string>Gamma</string>
+      <widget class="Line" name="line_12">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
-     <item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_histoCiz">
        <property name="text">
         <string>Histogram Çiz</string>
@@ -417,6 +421,13 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
+      <widget class="Line" name="line_13">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_histoEsitle">
        <property name="text">
         <string>Histogram Eşitle</string>
@@ -424,13 +435,114 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_graident">
-       <property name="text">
-        <string>Graident</string>
+      <widget class="Line" name="line_14">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="btn_gamma">
+         <property name="text">
+          <string>Gamma</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QSlider" name="gammaSlider">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="Line" name="line_15">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="btn_graident">
+         <property name="text">
+          <string>Graident</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QSlider" name="graidentMaxSlider">
+           <property name="maximum">
+            <number>400</number>
+           </property>
+           <property name="value">
+            <number>150</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="graidentMinSlider">
+           <property name="maximum">
+            <number>200</number>
+           </property>
+           <property name="value">
+            <number>50</number>
+           </property>
+           <property name="sliderPosition">
+            <number>50</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="Line" name="line_16">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QPushButton" name="btn_constant">
+         <property name="text">
+          <string>Border Constant</string>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QSlider" name="constanstSlider">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="Line" name="line_17">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_deriche">
        <property name="text">
         <string>Deriche</string>
@@ -438,6 +550,13 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item>
+      <widget class="Line" name="line_18">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignTop">
       <widget class="QPushButton" name="btn_harris">
        <property name="text">
         <string>Harris Kose</string>
@@ -449,9 +568,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>420</x>
       <y>620</y>
-      <width>1471</width>
+      <width>1321</width>
       <height>20</height>
      </rect>
     </property>
@@ -466,7 +585,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1733</width>
+     <width>2113</width>
      <height>26</height>
     </rect>
    </property>

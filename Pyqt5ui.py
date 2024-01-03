@@ -28,23 +28,8 @@ class LoadQt(QMainWindow):
         self.actionQuit.triggered.connect(self.QuestionMessage)
         self.actionBig.triggered.connect(self.big_Img)
         self.actionSmall.triggered.connect(self.small_Img)
-        self.actionQt.triggered.connect(self.AboutMessage)
-        self.actionAuthor.triggered.connect(self.AboutMessage2)
-
 
         self.actionTranslation.triggered.connect(self.translation)
-
-        self.actionOtsu_Thresold.triggered.connect(self.otsu_threshold)
-        self.actionGray_Scale.triggered.connect(self.gray_scale)
-        self.actionBorder_Constant.triggered.connect(self.border_constant)
-        self.actionBorder_Replicate.triggered.connect(self.border_replicate)
-        self.actionGamma_2.triggered.connect(self.gamma)
-        self.actionHistogram_Ciz.triggered.connect(self.histogram_ciz)
-        self.actionHistogram_Esitle.triggered.connect(self.histogram_esitleme)
-        self.actionGraidentL2.triggered.connect(self.l2_graident)
-        self.actionDeriche_Fitlre.triggered.connect(self.deriche_filtre)
-        self.actionHarris_Kose.triggered.connect(self.harris_kose)
-
 
         self.btn_otsu.clicked.connect(self.otsu_threshold)
         self.btn_gray.clicked.connect(self.gray_scale)
@@ -62,13 +47,6 @@ class LoadQt(QMainWindow):
 
 
         # Smoothing
-        self.actionBlur.triggered.connect(self.blurred_filter)
-        self.actionBox_Filter.triggered.connect(self.box_filter)
-        self.actionMedian_Filter.triggered.connect(self.median_filter)
-        self.actionBilateral_Filter.triggered.connect(self.bilateral_filter)
-        self.actionGaussian_Filter.triggered.connect(self.gaussian_filter)
-        self.actionFiltre_2D.triggered.connect(self.filter_2D)
-
         self.btn_blur.clicked.connect(self.blurred_filter)
         self.btn_boxF.clicked.connect(self.box_filter)
         self.btn_medianF.clicked.connect(self.median_filter)
@@ -80,8 +58,8 @@ class LoadQt(QMainWindow):
         self.gammaSlider.valueChanged.connect(self.gamma)
         self.gaussSlider.valueChanged.connect(self.gaussian_filter)
         self.constanstSlider.valueChanged.connect(self.border_constant)
-        self.graidentMinSlider.valueChanged.connect(self.l2_graident)
-        self.graidentMaxSlider.valueChanged.connect(self.l2_graident)
+        self.graidentMinSlider.valueChanged.connect(self.Graident)
+        self.graidentMaxSlider.valueChanged.connect(self.Graident)
         self.contourSlider.valueChanged.connect(self.Contour_Detection)
 
         # Filter
@@ -164,35 +142,10 @@ class LoadQt(QMainWindow):
         self.image = self.tmp
         self.displayImage(2)
 
-    def AboutMessage(self):
-        QMessageBox.about(self, "About Qt - Qt Designer",
-            "Qt is a multiplatform C + + GUI toolkit created and maintained byTrolltech.It provides application developers with all the functionality needed to build applications with state-of-the-art graphical user interfaces.\n"
-            "Qt is fully object-oriented, easily extensible, and allows true component programming.Read the Whitepaper for a comprehensive technical overview.\n\n"
 
-            "Since its commercial introduction in early 1996, Qt has formed the basis of many thousands of successful applications worldwide.Qt is also the basis of the popular KDE Linux desktop environment, a standard component of all major Linux distributions.See our Customer Success Stories for some examples of commercial Qt development.\n\n"
-
-            "Qt is supported on the following platforms:\n\n"
-
-                "\tMS / Windows - - 95, 98, NT\n"
-                "\t4.0, ME, 2000, and XP\n"
-                "\tUnix / X11 - - Linux, Sun\n"
-                "\tSolaris, HP - UX, Compaq Tru64 UNIX, IBM AIX, SGI IRIX and a wide range of others\n"
-                "\tMacintosh - - Mac OS X\n"
-                "\tEmbedded - - Linux platforms with framebuffer support.\n\n"
-                          
-            "Qt is released in different editions:\n\n"
-            
-                "\tThe Qt Enterprise Edition and the Qt Professional Edition provide for commercial software development.They permit traditional commercial software distribution and include free upgrades and Technical Support.For the latest prices, see the Trolltech web site, Pricing and Availability page, or contact sales @ trolltech.com.The Enterprise Edition offers additional modules compared to the Professional Edition.\n\n"
-                "\tThe Qt Open Source Edition is available for Unix / X11, Macintosh and Embedded Linux.The Open Source Edition is for the development of Free and Open Source software only.It is provided free of charge under the terms of both the Q Public License and the GNU General Public License."
-        )
-    def AboutMessage2(self):
-        QMessageBox.about(self, "About Author", "Người hướng dẫn:   NGÔ QUỐC VIỆT \n\n" 
-                                                "Người thực hiện:\n" 
-                                                    "\tPhan Hoàng Việt - 42.01.104.189"
-                          )
 
     def QuestionMessage(self):
-        message = QMessageBox.question(self, "Çıkış", "Uygulamadan çıkış yapılsınmı?", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        message = QMessageBox.question(self, "Çıkış", "Uygulamadan çıkış yapılsın mı?", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if message == QMessageBox.Yes:
             print("Yes")
             self.close()
@@ -224,7 +177,11 @@ class LoadQt(QMainWindow):
             can = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
             self.image = cv2.Canny(can, self.canny_min.value(), self.canny_max.value())
         self.displayImage(2)
-
+    def Graident(self):
+        self.image = self.tmp
+        can = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+        self.image = cv2.Canny(can, self.graidentMinSlider.value(), self.graidentMaxSlider.value())
+        self.displayImage(2)
 
 #####################################Smoothing##########################################################################
     def blurred_filter(self):
@@ -360,12 +317,6 @@ class LoadQt(QMainWindow):
         sonuc1=cv2.Canny(image,low_thresold,high_thresold,L2gradient=True)
         self.image = sonuc1
         self.displayImage(2)
-
-        #f,eksen=plt.subplots(1,2,figsize=(17,7))
-        #l2Graident=true gradyan hesabında ..
-        #eksen[0].imshow(cv2.cvtColor(image,cv2.COLOR_BGR2RGB),cmap="gray")
-        #eksen[1].imshow(sonuc1,cmap="gray")
-        #plt.show()
     
     def deriche_filtre(self):
         image=cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
