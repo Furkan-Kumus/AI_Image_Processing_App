@@ -261,7 +261,7 @@ class LoadQt(QMainWindow):
         
     def border_constant(self):
         #BORDER_CONSTANT:yeni eklenen tüm piksellerin değeri sabit bir değer yapılabilir
-        border_color=(0, 0, 0)
+        border_color = (0, 0, 0)
         border_width = 10
         image_with_border_constant = cv2.copyMakeBorder(self.image, border_width, border_width, border_width, border_width, borderType=cv2.BORDER_CONSTANT, value=[120, 12, 240])
         self.image = image_with_border_constant
