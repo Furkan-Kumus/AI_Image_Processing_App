@@ -19,7 +19,7 @@ class LoadQt(QMainWindow):
     def __init__(self):
         super(LoadQt, self).__init__()
         loadUi('demo.ui', self)
-        self.setWindowIcon(QtGui.QIcon("vet.png"))
+        self.setWindowIcon(QtGui.QIcon("Ornek_Fotolar/ferrari-min.png"))
 
         self.image = None
         self.actionOpen.triggered.connect(self.open_img)
